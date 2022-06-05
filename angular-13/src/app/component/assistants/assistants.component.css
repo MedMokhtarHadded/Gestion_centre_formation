@@ -1,0 +1,23 @@
+.add{
+    position: absolute;
+    right: 25px;
+   width: 120px;
+   background-color: rgb(12, 6, 65);
+}
+
+#add-fix{
+    width: 120px;
+    height: 40px;
+    position: absolute;
+    right: 25px;
+    cursor:pointer;
+    z-index: 99;
+}
+
+.emailValidator{
+    position: absolute;
+    bottom: 0;
+}
+.validatorWrapper{
+    position: relative;
+}

@@ -1,0 +1,132 @@
+
+  <div class="card">
+    <div class="card-body">
+   
+      <h4 class="card-title">Liste des apprenants</h4>
+      <div class="table-responsive">
+        
+        <table class="table align-middle text-nowrap">
+            <thead>
+                <tr>
+                    <th class="text-dark font-medium fs-4 ">Full Name</th>
+                    <th class="text-dark font-medium fs-4 text-center">Cin</th> 
+                    <th class="text-dark font-medium fs-4 text-center">Date de naissance</th>
+                    <th class="text-dark font-medium fs-4 text-center">Tel</th>
+                    <th class="text-dark font-medium fs-4 text-center">Formation affecté</th>
+                
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor='let apprenant of apprenants'>
+                    <td>
+                        <div class="d-flex align-items-center">
+                            <!-- <img [src]=ts.image alt="apprenant" width="45" class="rounded-circle"> -->
+                            <div class="ms-1">
+                                <h4 class="mb-0 font-medium">{{apprenant.firstName}} {{apprenant.lastName}}</h4>
+                                <span class="text-muted">{{apprenant.email}}</span>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="fs-4 text-center">{{apprenant.cin}}</td>
+                    <td class="text-center">
+                        <h5 class="mb-0 fw-normal">{{apprenant.birthday}}</h5>
+                   </td>
+                    <td class="fs-4 text-center">{{apprenant.tel}}</td>
+                   
+                    
+                     <td class="text-center">
+                         <h5 class="mb-0 fw-normal">{{apprenant.affectedFormation}}</h5>
+                    </td>
+                      
+                   
+                  
+         
+                    
+
+
+
+
+          <!-- Modal -->
+<div class="modal fade" id="edit" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="staticBackdropLabel" (ngSubmit)="updateApprenant()">Edit apprenant</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="editApprenant()">
+
+          <div class=" row">
+              <div class=" col-md-6 pr-md-1">
+                  <mat-form-field class="example-full-width" >
+                      <mat-label>First name</mat-label>
+                      <input matInput [(ngModel)]="apprenant.firstName" [ngModelOptions]="{standalone : true} ">
+                    </mat-form-field>
+              </div>
+
+              <div class=" col-md-6 pr-md-1">
+                  <mat-form-field class="example-full-width" >
+                      <mat-label>Last name</mat-label>
+                      <input matInput  [(ngModel)]="apprenant.lastName" [ngModelOptions]="{standalone : true}">
+                    </mat-form-field>
+              </div>
+          </div>
+
+          <div class=" row">
+              <div class=" col-md-6 pr-md-1">
+                  <mat-form-field class="example-full-width" >
+                      <mat-label>Email</mat-label>
+                      <input matInput  [(ngModel)]="apprenant.email" [ngModelOptions]="{standalone : true} " >
+                    </mat-form-field>
+              </div>
+
+              <div class=" col-md-5 pr-md-1">
+                  <mat-form-field class="example-full-width" >
+                      <mat-label>CIN</mat-label>
+                      <input matInput [(ngModel)]="apprenant.cin" [ngModelOptions]="{standalone : true} " >
+                    </mat-form-field>
+              </div>
+          </div>
+
+          <div class=" row">
+              <div class=" col-md-6 pr-md-1">
+                  <mat-form-field class="example-full-width" >
+                      <mat-label>Date de naissance</mat-label>
+                      <input matInput  [(ngModel)]="apprenant.birthday" [ngModelOptions]="{standalone : true} " >
+                    </mat-form-field>
+              </div>
+
+              <div class=" col-md-5 pr-md-1">
+                  <mat-form-field class="example-full-width" >
+                      <mat-label>Tel</mat-label>
+                      <input matInput [(ngModel)]="apprenant.tel" [ngModelOptions]="{standalone : true} " >
+                    </mat-form-field>
+              </div>
+          </div>
+
+          <div class=" row ">
+              <div class=" col-md-6 pr-md-1">
+                  <mat-form-field class="example-full-width" >
+                      <mat-label>Formation affecté</mat-label>
+                      <input matInput  [(ngModel)]="apprenant.affectedFormation" [ngModelOptions]="{standalone : true} " >
+                    </mat-form-field>
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+            <button type="submit" class="btn btn-primary">Edit</button>
+          </div>
+      </form>
+      </div>
+ 
+    </div>
+  </div>
+</div>
+
+                </tr>              
+            </tbody>
+        </table>
+    </div>
+    </div>
+  </div>

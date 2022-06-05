@@ -1,0 +1,103 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<!--Author      : @arboshiki-->
+<div id="invoice">
+
+    <div class="toolbar hidden-print">
+        <div class="text-right">
+            <button #button id="printInvoice" class="btn btn-info" (click)="print(button)" [hidden]="hiddenButton"><i class="fa fa-print"></i> Print</button>
+        </div>
+        <hr>
+    </div>
+    <div class="invoice overflow-auto">
+        <div style="min-width: 600px">
+            <header>
+                <div class="row">
+                    <div class="col">
+                        <a target="_blank" href="https://lobianijs.com">
+                            <img src="../../assets/images/crococoder.jpg" data-holder-rendered="true" width="200px"/>
+                            </a>
+                    </div>
+                    <div class="col company-details">
+                        <h2 class="name">
+                            <a target="_blank" href="https://crococoder.com">
+                                Crocooder
+                            </a>
+                        </h2>
+                        <div>A1, Immeuble Yasmin Tower, Tunis</div>
+                        <div>+216 24 600 900</div>
+                        <div>contact@crococoder.tn</div>
+                    </div>
+                </div>
+            </header>
+            <main>
+                <div class="row contacts">
+                    <div class="col invoice-to">
+                        <div class="text-gray-light">Facture pour:</div>
+                        <h2 class="to">{{user.firstName}} {{user.lastName}}</h2>
+                        <div class="address">Tunis</div>
+                        <div class="email"><a href="mailto:john@example.com">{{user.email}}</a></div>
+                    </div>
+                    <div class="col invoice-details">
+                        <h1 class="invoice-id">Facture CR{{num}}</h1>
+                        <div class="date">Date du facture: {{dateTime}}</div>
+                    </div>
+                </div>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th class="text-left">FORMATION</th>
+                            <th class="text-right">PRIX D'HEURE</th>
+                            <th class="text-right">NOMBRE D'HEURES</th>
+                            <th class="text-right">TOTAL</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                       
+                        <tr>
+                            <td class="no">01</td>
+                            <td class="text-left"><h3>{{user.affectedFormation}}</h3></td>
+                            <td class="unit">{{formation.price/formation.duration | number:".2"}} dt</td>
+                            <td class="qty">{{formation.duration}} h</td>
+                            <td class="total">{{formation.price}} dt</td>
+                        </tr>
+                      
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="2"></td>
+                            <td colspan="2">Total HT</td>
+                            <td>{{formation.price}} dt</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"></td>
+                            <td colspan="2">TVA 18.0%
+                            </td>
+                            <td>{{formation.price*18/100}} dt</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"></td>
+                            <td colspan="2">Total TTC</td>
+                            <td>{{formation.price*118/100}} dt</td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <div class="thanks">Merci!</div>
+                <div class="notices">
+                    <div>NOTICE:</div>
+                    <div class="notice">Des frais supplémentaires de 1,5 % seront appliqués sur les soldes impayés après 30 jours.
+                    </div>
+                </div>
+            </main>
+            <footer>
+                Facture créer sur un pc et valable sans signature
+            </footer>
+        </div>
+        <!--DO NOT DELETE THIS div. IT is responsible for showing footer always at the bottom-->
+        <div></div>
+    </div>
+</div>

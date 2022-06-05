@@ -1,0 +1,17 @@
+.add{
+    position: absolute;
+    right: 25px;
+   width: 120px;
+   background-color: rgb(12, 6, 65);
+}
+
+.edit{
+    position: absolute;
+    right: 45px; ;
+    bottom:0px;
+} 
+.delete{
+    position: absolute;
+    right: 10px;
+    bottom:0px;
+}

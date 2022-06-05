@@ -1,0 +1,130 @@
+<button mat-raised-button color="primary" class="add" data-bs-toggle="modal" data-bs-target="#add"><i class="fa fa-plus-circle fa-lg"></i>  Ajouter </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="add" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" id="staticBackdropLabel">Ajouter salle</h3>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form (ngSubmit)="addSalleFormation()">
+  
+            <div class=" row">
+                <div class=" col-md-6 pr-md-1">
+                    <mat-form-field class="example-full-width" >
+                        <mat-label>Numéro salle</mat-label>
+                        <input type="number" matInput [(ngModel)]="salleFormation.numSalle" [ngModelOptions]="{standalone : true}" >
+                      </mat-form-field>
+                </div>
+  
+                <div class=" col-md-6 pr-md-1">
+                    <mat-form-field class="example-full-width" >
+                        <mat-label>Nombre de places</mat-label>
+                        <input type="number" matInput [(ngModel)]="salleFormation.nmbPlaces" [ngModelOptions]="{standalone : true}">
+                      </mat-form-field>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+          <button type="submit" class="btn btn-primary">Ajouter</button>
+        </div>
+
+        </form>
+        </div>
+     
+      </div>
+    </div>
+  </div>
+
+  
+<h2 class="font-medium mb-3">Liste des salles de formations</h2>
+<h3 class="card-subtitle text-muted"> Nombre de salles: {{sallesFormations.length}}</h3>
+
+<!-- Row -->
+<div class="row pt-4">
+  
+  <!-- column -->
+  <div class="col-lg-3 col-md-6"  *ngFor="let salleFormation of sallesFormations">
+
+    <!-- Card -->
+    <!-- ---------------------
+                      start Card title
+                  ---------------- -->
+    <div class="card">
+      <img
+        class="card-img-top img-responsive"
+        src="../../../assets/images/CONSEILS_FORMATION_1.jpg"
+        alt="Card image cap"
+      />
+      
+      <div class="card-body">
+        <h4 class="card-title">Salle {{salleFormation.numSalle}}</h4>
+        <p class="card-text">
+          Nombre de places: {{salleFormation.nmbPlaces}}
+        </p>
+        <button mat-icon-button class="edit" (click)="update(salleFormation._id)" data-bs-toggle="modal" data-bs-target="#edit">   
+          <i class="fas fa-edit fa-lg"></i>
+      </button>
+<button mat-icon-button color="warn" class="delete" (click)="deleteSalleFormation(salleFormation._id)">
+<mat-icon >delete</mat-icon>
+</button>
+      </div>
+    </div>
+    <!-- ---------------------
+                      end Card title
+                  ---------------- -->
+    <!-- Card -->
+
+      <!-- Modal -->
+  <div class="modal fade" id="edit" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" id="staticBackdropLabel">Modifier Salle</h3>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form (ngSubmit)="updateSalleFormation()">
+  
+            <div class=" row">
+                <div class=" col-md-6 pr-md-1">
+                    <mat-form-field class="example-full-width" >
+                        <mat-label>Numéro salle</mat-label>
+                        <input type="number" matInput [(ngModel)]="salleFormation.numSalle" [ngModelOptions]="{standalone : true}" >
+                      </mat-form-field>
+                </div>
+  
+                <div class=" col-md-6 pr-md-1">
+                    <mat-form-field class="example-full-width" >
+                        <mat-label>Nombre de places</mat-label>
+                        <input type="number" matInput [(ngModel)]="salleFormation.nmbPlaces" [ngModelOptions]="{standalone : true}">
+                      </mat-form-field>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+          <button type="submit" class="btn btn-primary">Edit</button>
+        </div>
+
+        </form>
+        </div>
+     
+      </div>
+    </div>
+  </div>
+
+  </div>
+  <!-- column -->
+  <div class="col-lg-3 col-md-6">
+
+  </div>
+  <!-- column -->
+  <div class="col-lg-3 col-md-6">
+
+  </div>
+</div>
+<!-- Row -->
